@@ -58,13 +58,13 @@ cd
 
 chown -R $MASTERUSER:$MASTERUSER /home/$MASTERUSER
 
-sed -i "s/.*#Port 22.*/Port $SSHPORT/g" /etc/ssh/sshd_config
+sed -i "s/.*Port *.*/Port $SSHPORT/g" /etc/ssh/sshd_config
 
-sed -i "s/.*PermitRootLogin yes.*/PermitRootLogin no/g" /etc/ssh/sshd_config
+sed -i "s/.*PermitRootLogin *.*/PermitRootLogin no/g" /etc/ssh/sshd_config
 
-sed -i "s/.*UsePAM yes.*/#UsePAM yes/g" /etc/ssh/sshd_config
+sed -i "s/.*UsePAM *.*/#UsePAM yes/g" /etc/ssh/sshd_config
 
-sed -i "s/.*PasswordAuthentication yes.*/PasswordAuthentication no/g" /etc/ssh/sshd_config
+sed -i "s/.*PasswordAuthentication *.*/PasswordAuthentication no/g" /etc/ssh/sshd_config
 
 echo '# Cronjob-Spam umleiten
 :msg, contains, "pam_unix(cron:session):" -/var/log/cronauth.log
