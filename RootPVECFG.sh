@@ -44,6 +44,8 @@ $USERPW
 $USERPW
 EOF
 
+rm -R /home/$MASTERUSER/.ssh
+
 cd /home/$MASTERUSER
 
 mkdir /home/$MASTERUSER/.ssh
@@ -69,3 +71,5 @@ sed -i "s/.*PasswordAuthentication yes.*/PasswordAuthentication no/g" /etc/ssh/s
 echo '# Cronjob-Spam umleiten
 :msg, contains, "pam_unix(cron:session):" -/var/log/cronauth.log
 & ~' >/etc/rsyslog.d/30-cron.conf
+
+echo -e "\e[1;32mFertig\e[0m"
