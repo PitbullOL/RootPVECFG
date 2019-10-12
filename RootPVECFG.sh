@@ -1,13 +1,14 @@
 rm /etc/apt/sources.list.d/pve-enterprise.list
 
-echo 'deb http://ftp.debian.org/debian stretch main contrib
+echo 'deb http://ftp.debian.org/debian buster main contrib
+deb http://ftp.debian.org/debian buster-updates main contrib
 
 # PVE pve-no-subscription repository provided by proxmox.com,
 # NOT recommended for production use
-deb http://download.proxmox.com/debian/pve stretch pve-no-subscription
+deb http://download.proxmox.com/debian/pve buster pve-no-subscription
 
 # security updates
-deb http://security.debian.org stretch/updates main contrib' >/etc/apt/sources.list
+deb http://security.debian.org buster/updates main contrib' >/etc/apt/sources.list
 
 apt update -y
 
